@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.practice2.mapper.BookMapper">
+    <!-- selectBook --> 
+
+    <select id="selectBook" resultType="BookDto">
+        select * from tb_book where book_no=#{book_no}
+    </select>  
+
+    <!-- selectBookList --> 
+
+    <select id="selectBookList" resultType="BookDto">
+        select * from tb_book order by book_no desc
+    </select>
+</mapper>
