@@ -27,5 +27,12 @@ public class BookController {
         model.addAttribute("list", list);
         log.info("log : bookList");
     }
+
+    @GetMapping("/book/bookDetail")
+    public void getMethodName(@RequestParam(required = false, name = "book_no") String no, Model model) {
+        BookDto book = service.selectBook(no);
+        model.addAttribute("book", book);
+    }
+    
     
 }
