@@ -7,5 +7,20 @@
 </head>
 <body>
     <h1>도서 세부 정보</h1>
+    <table>
+        <tr>
+            <th>도서번호</th>
+            <th>도서제목</th>
+            <th>작가명</th>
+            <th>가격</th>
+        </tr>
+        <tr>
+            <td th:text="${book.book_no}"></td>
+            <td th:text="${book.title}"></td>
+            <td th:text="${book.author}"></td>
+            <td th:text="${book.price}+원"></td>
+        </tr>
+    </table>
+    <a href="/book/bookList">도서목록으로..</a>
 </body>
 </html>
