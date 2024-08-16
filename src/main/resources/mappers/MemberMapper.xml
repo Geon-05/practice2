@@ -1,6 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.practice2.mapper.MemberMapper">
+
+  <!-- selectMember -->
+
+  <select id="selectMember" resultType="MemberDto">
+    select * from tb_member where mem_no=#{mem_no}
+  </select>
+  <!-- selectMemberList -->
+
+  <select id="selectMemberList" resultType="MemberDto">
+    select * from tb_member order by mem_no desc
+  </select>
 </mapper>
