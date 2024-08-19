@@ -24,8 +24,8 @@ public class MemberController {
     }
 
     @GetMapping("/member/memberDetail")
-    public void getMethodName(@RequestParam(required = false, name = "mem_no") String mem_no, Model model) {
-        MemberDto member = service.selectMember(mem_no);
+    public void getMethodName(@RequestParam(required = false, name = "mem_no") String no, Model model) {
+        MemberDto member = service.selectMember(no);
         model.addAttribute("member", member);
     }
     
