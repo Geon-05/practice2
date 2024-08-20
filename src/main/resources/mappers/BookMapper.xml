@@ -14,4 +14,10 @@
     <select id="selectBookList" resultType="BookDto">
         select * from tb_book order by book_no desc
     </select>
+
+    <!-- deleteBook --> 
+
+    <delete id="deleteBook">
+        delete from tb_book where book_no=#{book_no}
+    </delete>
 </mapper>

@@ -8,7 +8,9 @@ import com.example.practice2.dto.BookDto;
 
 @Mapper
 public interface BookMapper {
-    BookDto selectBook(String book_no);
+    public BookDto selectBook(String book_no);
 
-    List<BookDto> selectBookList();
+    public List<BookDto> selectBookList();
+
+    public int deleteBook(String book_no);
 }

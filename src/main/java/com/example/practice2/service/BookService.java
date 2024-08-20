@@ -20,4 +20,8 @@ public class BookService {
     public List<BookDto> selectBookList(){
         return mapper.selectBookList();
     }
+
+    public int deleteBook(String book_no){
+        return mapper.deleteBook(book_no);
+    }
 }

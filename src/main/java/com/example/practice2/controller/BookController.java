@@ -22,17 +22,36 @@ public class BookController {
     BookService service;
 
     @GetMapping("/book/bookList")
-    public void getMethodName(Model model) {
+    public void bookList(Model model) {
         List<BookDto> list = service.selectBookList();
         model.addAttribute("list", list);
         log.info("log : bookList");
     }
 
     @GetMapping("/book/bookDetail")
-    public void getMethodName(@RequestParam(required = false, name = "book_no") String no, Model model) {
+    public void bookDetail(@RequestParam(required = false, name = "book_no") String no, Model model) {
         BookDto book = service.selectBook(no);
         model.addAttribute("book", book);
     }
     
+    @GetMapping("/book/bookWrite")
+    public void bookWrite() {
+    }
+    
+    @GetMapping("/book/bookDelete")
+    public String bookDelete(@RequestParam(required = false, name = "book_no") String no, Model model) {
+        if (no == null) {
+            model.addAttribute("msg", "도서번호가 입력되지 않았습니다.");
+            model.addAttribute("url", "/book/bookList");
+        }
+        int delete = service.deleteBook(no);
+        if (delete > 0) {
+            model.addAttribute("msg", "삭제 되었습니다.");
+            model.addAttribute("url", "/book/bookList");
+        } else {
+            model.addAttribute("msg", "삭제 중 예외가 발생 하였습니다. \n 관리자에게 문의해주세요.");
+        }
+        return "/common/msg";
+    }
     
 }

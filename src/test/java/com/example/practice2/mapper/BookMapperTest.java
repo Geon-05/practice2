@@ -1,5 +1,6 @@
 package com.example.practice2.mapper;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.util.List;
@@ -25,5 +26,11 @@ public class BookMapperTest {
     void testSelectBookList() {
         List<BookDto> list = mapper.selectBookList();
         assertNotNull(list);
+    }
+
+    @Test
+    void testDeleteBook() {
+        int delete = mapper.deleteBook("B00001");
+        assertEquals(0, delete);
     }
 }
