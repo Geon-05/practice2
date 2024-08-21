@@ -24,7 +24,7 @@ public class BookController {
     @Autowired
     BookService service;
 
-    @GetMapping("/book/bookList")
+    @GetMapping("/book/bookTables")
     public void bookList(Model model) {
         List<BookDto> list = service.selectBookList();
         model.addAttribute("list", list);
@@ -52,12 +52,12 @@ public class BookController {
     public String bookDelete(@RequestParam(required = false, name = "book_no") String no, Model model) {
         if (no == null) {
             model.addAttribute("msg", "도서번호가 입력되지 않았습니다.");
-            model.addAttribute("url", "/book/bookList");
+            model.addAttribute("url", "/book/bookTables");
         }
         int delete = service.deleteBook(no);
         if (delete > 0) {
             model.addAttribute("msg", "삭제 되었습니다.");
-            model.addAttribute("url", "/book/bookList");
+            model.addAttribute("url", "/book/bookTables");
         } else {
             model.addAttribute("msg", "삭제 중 예외가 발생 하였습니다. \n 관리자에게 문의해주세요.");
         }
