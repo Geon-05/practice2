@@ -164,20 +164,20 @@
         </li>
 
         <!-- Nav Item - 사용자목록 -->
+        <li class="nav-item active">
+          <a class="nav-link" href="/member/memberTables">
+            <i class="fas fa-fw fa-table"></i>
+            <span>사용자목록</span></a
+          >
+        </li>
+
+        <!-- Nav Item - 도서목록 -->
         <li class="nav-item">
-            <a class="nav-link" href="/member/memberTables">
-              <i class="fas fa-fw fa-table"></i>
-              <span>사용자목록</span></a
-            >
-          </li>
-  
-          <!-- Nav Item - 도서목록 -->
-          <li class="nav-item active">
-            <a class="nav-link" href="/book/bookTables">
-              <i class="fas fa-fw fa-table"></i>
-              <span>도서목록</span></a
-            >
-          </li>
+          <a class="nav-link" href="/book/bookTables">
+            <i class="fas fa-fw fa-table"></i>
+            <span>도서목록</span></a
+          >
+        </li>
 
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block" />
@@ -212,7 +212,7 @@
           <!-- Begin Page Content -->
           <div class="container-fluid">
             <!-- Page Heading -->
-            <h1 class="h3 mb-2 text-gray-800">도서목록</h1>
+            <h1 class="h3 mb-2 text-gray-800">사용자목록</h1>
             <p class="mb-4">
               영등포 도서관에 오신것을 환영합니다.
             </p>
@@ -221,7 +221,7 @@
             <div class="card shadow mb-4">
               <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">
-                  도서목록 보기
+                  사용자목록 보기
                 </h6>
               </div>
               <div class="card-body">
@@ -234,38 +234,35 @@
                   >
                     <thead>
                       <tr>
-                        <th>도서번호</th>
-                        <th>제목</th>
-                        <th>작가</th>
-                        <th>가격</th>
-                        <th>대여여부</th>
+                        <th>사용자번호</th>
+                        <th>아이디</th>
+                        <th>이름</th>
+                        <th>주소</th>
                         <th>등록일자</th>
                       </tr>
                     </thead>
                     <tfoot>
                       <tr>
-                        <th>도서번호</th>
-                        <th>제목</th>
-                        <th>작가</th>
-                        <th>가격</th>
-                        <th>대여여부</th>
+                        <th>사용자번호</th>
+                        <th>아이디</th>
+                        <th>이름</th>
+                        <th>주소</th>
                         <th>등록일자</th>
                       </tr>
                     </tfoot>
                     <tbody>
-                      <th:block th:each="book:${list}">
+                      <th:block th:each="member:${list}">
                         <tr>
-                          <td th:text="${book.book_no}"></td>
+                          <td th:text="${member.mem_no}"></td>
                           <td>
                             <a
-                              th:href="@{/book/bookDetail(book_no=${book.book_no})}"
-                              th:text="${book.title}"
+                              th:href="@{/member/memberDetail(mem_no=${member.mem_no})}"
+                              th:text="${member.id}"
                             ></a>
                           </td>
-                          <td th:text="${book.author}"></td>
-                          <td th:text="${book.price}"></td>
-                          <td th:text="${book.rentyn}"></td>
-                          <td th:text="${book.regdate}"></td>
+                          <td th:text="${member.name}"></td>
+                          <td th:text="${member.addr}"></td>
+                          <td th:text="${member.regdate}"></td>
                         </tr>
                       </th:block>
                     </tbody>

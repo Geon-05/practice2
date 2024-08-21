@@ -29,5 +29,9 @@ public class MemberController {
         model.addAttribute("member", member);
     }
     
-    
+    @GetMapping("/member/memberTables")
+    public void memberTable(Model model) {
+        List<MemberDto> list = service.selectMemberList();
+        model.addAttribute("list", list);
+    }
 }
